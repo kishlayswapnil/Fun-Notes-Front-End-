@@ -1,0 +1,81 @@
+<div class=main-div fxLayout="row" fxLayout.xs="column">
+    <mat-card style="box-shadow: 1px 1px 7px 0px;">
+        <mat-card-content>
+            <form>
+                <div fxLayout="row" fxLayoutAlign="center" style="font-size:24px; margin-bottom: 25px;">
+                    <span style="color: rgba(0, 0, 0, 0.342);">Fundoo</span>
+                    <span style="color: rgb(255, 174, 0);">Notes</span>
+                </div>
+
+                <div class="Title2">
+                    <mat-card-title>Register</mat-card-title>
+                </div>
+                <div class="form_field">
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="Firstname" [formControl]="firstname">
+                        <mat-error *ngIf="firstname.invalid">{{getFirstNameErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>perm_identity</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Lastname" [formControl]="lastname">
+                        <mat-error *ngIf="lastname.invalid">{{getLastNameErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>perm_identity</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div class="form_field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>UserName</mat-label>
+                        <input matInput placeholder="UserName" [formControl]="username">
+                        <mat-error *ngIf="username.invalid">{{getUserNameErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput placeholder="mobilenumber" [formControl]="mobileNumber">
+                        <mat-error *ngIf="mobileNumber.invalid">{{getPhoneNoErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>phone</mat-icon>
+                    </mat-form-field>
+
+                </div>
+
+                <div>
+                    <mat-form-field appearance="outline" class="form-Email">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" [formControl]="email">
+                        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                    </mat-form-field>
+                </div>
+
+                <div class="form_field">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput placeholder="password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="form_field">
+                    <mat-card-actions>
+                        <button mat-raised-button>Register</button>
+                        <button mat-raised-button onclick="window.location.href='http://localhost:4200/login'">Login</button>
+                    </mat-card-actions>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
