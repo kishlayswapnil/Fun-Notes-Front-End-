@@ -1,0 +1,31 @@
+<div class="main-div">
+    <mat-card class="matCard" style="box-shadow: 1px 1px 7px 0px;">
+        <form>
+
+            <div>
+                <div fxLayout="row" fxLayoutAlign="center" style="font-size:24px; margin-bottom: 25px;">
+                    <span style="color: rgba(0, 0, 0, 0.342);">Fundoo</span>
+                    <span style="color: rgb(255, 174, 0);">Notes</span>
+                </div>
+                <div class="Title2">Forgot Password</div>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline" class="Log">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="email" [formControl]="email">
+                    <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="button">
+                <div>
+                    <button mat-raised-button onclick="window.location.href='http://localhost:4200/reset'">Reset Password</button>
+                </div>
+            </div>
+
+        </form>
+    </mat-card>
+
+</div>
