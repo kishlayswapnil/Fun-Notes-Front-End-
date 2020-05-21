@@ -1,0 +1,141 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.search {
+    display: flex;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    width: 650px;
+    margin-left: 5%;
+    outline: none;
+    background: #fff;
+}
+
+.mat-toolbar {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+}
+
+.fundoo-icon {
+    display: flex;
+    padding-right: 10px;
+}
+
+.search-input {
+    display: flex;
+    border: none;
+    height: 40px;
+    width: 300px;
+    outline: none;
+}
+
+.refresh {
+    margin-left: 40%;
+}
+
+.grid {
+    margin-left: 13%;
+}
+
+.setting {
+    margin-left: 15%;
+}
+
+.signout-button {
+    margin-left: 20%;
+}
+
+.menu {
+    margin-left: -25%;
+}
+
+.sidenav-div {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    border: none;
+    border-color: whitesmoke;
+}
+
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-color: whitesmoke;
+}
+
+.matSidenav {
+    font-size: smaller;
+    font-family: monospace;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    overflow: hidden;
+    justify-content: space-around !important;
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+}
+
+.navbutton {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    background: none;
+    border-bottom: none;
+    border: none;
+    border-style: none;
+    border-bottom-style: hidden;
+}
+
+.sidenav-icon {
+    margin-right: 1em;
+    height: 24px;
+    width: 24px;
+    float: left;
+    margin-top: 8px;
+}
+
+.icon-label {
+    margin-right: 60%;
+}
+
+.navbutton:hover {
+    background-color: lightgrey;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+.divider {
+    margin: 20px 0 20px 0;
+}
+
+.label {
+    margin-left: 30px;
+}
+
+.sidenav-content {
+    justify-content: center;
+    width: 100%;
+    align-content: center;
+    height: 100%;
+}
+
+.header {
+    justify-content: center;
+    align-content: center;
+}
+
+
+.profile {
+    border-radius: 50%;
+}
