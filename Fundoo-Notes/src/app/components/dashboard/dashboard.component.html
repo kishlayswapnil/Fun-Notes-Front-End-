@@ -1,0 +1,102 @@
+<div class="dashboard">
+    <div class="toolbar">
+        <mat-toolbar>
+            <mat-toolbar-row>
+
+                <span>
+                    <button mat-icon-button (click)="sidenav.toggle()" class="menu">
+                        <mat-icon matTooltip="Main menu">menu</mat-icon>
+                    </button>
+                </span>
+                <img class="fundoo-icon" src="C:\Users\PUJA\Desktop\java fullstack\keep_48dp.png"
+                    srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x, https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x "
+                    alt="" aria-hidden="true" style="width:40px;height:40px">
+                <span style="color: rgba(0, 0, 0, 0.342);">Fundoo</span>
+                <span style="color: rgb(134, 108, 51);">Notes</span>
+
+                <div class="search">
+                    <button mat-icon-button class="search-icon">
+                        <mat-icon matTooltip="search">search</mat-icon>
+                    </button>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+
+                <div class="rightside-icons">
+                    <button mat-icon-button class="refresh">
+                        <mat-icon matTooltip="Refresh">refresh</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Grid View">
+                        <mat-icon>view_module</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="List View">
+                        <mat-icon>view_agenda</mat-icon>
+                    </button>
+                    <button mat-icon-button class="setting">
+                        <mat-icon matTooltip="Settings">settings</mat-icon>
+                    </button>
+                    <button class="signout-button" (click)="onClick()" mat-stroked-button
+                        color="primary">Signout</button>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+
+    <div class="sidenav-div">
+        <mat-sidenav-container class="sidenav-container">
+            <mat-sidenav class="matSidenav" #sidenav mode="side">
+
+                <div>
+                    <button mat-button class="navbutton" [routerLink]="['/dashboard']">
+                        <mat-icon class="sidenav-icon">lightbulb_outline</mat-icon>
+                        <span class="icon-label">Notes</span>
+                    </button>
+
+
+                    <button mat-button class="navbutton">
+                        <mat-icon class="sidenav-icon">notifications_none</mat-icon>
+                        <span class="icon-label">Reminders</span>
+                    </button>
+                </div>
+
+                <mat-divider class="divider"></mat-divider>
+
+                <div>
+                    <div>
+                        <div>
+                            <button mat-button class="navbutton">
+                                <mat-icon class="sidenav-icon">label_outline</mat-icon>
+                                <span class="icon-label">Labels</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-button class="navbutton">
+                            <mat-icon class="sidenav-icon">create</mat-icon>
+                            <span class="icon-label">Edit labels</span>
+                        </button>
+                    </div>
+                </div>
+
+                <mat-divider class="divider"></mat-divider>
+
+                <div>
+                    <button mat-button class="navbutton">
+                        <mat-icon class="sidenav-icon">archive</mat-icon>
+                        <span class="icon-label">Archive</span>
+                    </button>
+                </div>
+                <div>
+                    <button mat-button class="navbutton">
+                        <mat-icon class="sidenav-icon">delete</mat-icon>
+                        <span class="icon-label">Trash</span>
+                    </button>
+                </div>
+
+            </mat-sidenav>
+            <mat-sidenav-content class="sidenav-content">
+                <router-outlet></router-outlet>
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+    </div>
+</div>
