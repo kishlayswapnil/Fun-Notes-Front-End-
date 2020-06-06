@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteService } from '../service/note.service';
-import { Note } from '../model/Note.model';
+import { NoteService } from '../../service/note.service';
+import { Note } from '../../model/Note.model';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -29,11 +29,10 @@ export class CreatenotesComponent implements OnInit {
       this.noteService.createNote(this.noteModel).subscribe(
 
         (response: any) => {
-          console.log(localStorage.getItem)
           this.matSnackBar.open("note created", "success", { duration: 5000 })
         },
         (error: any) => {
-          this.matSnackBar.open("Notes not created", "failed", { duration: 3000 })
+          this.matSnackBar.open("Note not created", "failed", { duration: 3000 })
         }
       );
     }
