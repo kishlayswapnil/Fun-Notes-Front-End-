@@ -1,0 +1,58 @@
+<div class="note-icon">
+  <button mat-icon-button [matMenuTriggerFor]="reminder">
+    <mat-icon matTooltip="Remind me">notifications_none</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon matTooltip="Collaborator">person_add</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon matTooltip="Add color">color_lens</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div *ngFor="let colors of colorsList" fxLayout="row">
+      <div *ngFor="let color of colors" class="colorsList">
+        <button [ngStyle]="{ 'background-color': color.colorCode }" (click)="changeColor(color)"
+          matTooltip="{{ color.name }}" mat-mini-fab></button>
+      </div>
+    </div>
+  </mat-menu>
+  <div>
+    <button mat-icon-button (click)="onArchive()">
+      <mat-icon matTooltip="Archive">archive</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button mat-icon-button (click)="onUnArchive()">
+      <mat-icon matTooltip="unarchive">unarchive</mat-icon>
+    </button>
+  </div>
+  <button mat-icon-button>
+    <mat-icon matTooltip="More" [matMenuTriggerFor]="menu1">more_vert</mat-icon>
+  </button>
+  <mat-menu #menu1="matMenu">
+    <button mat-menu-item (click)="deleteNote()">
+      Delete Note
+    </button>
+    <button mat-menu-item>
+      Add Label
+    </button>
+  </mat-menu>
+  <mat-menu #reminder="matMenu">
+    <div style="margin: 20px;">
+      Reminder:
+    </div>
+
+    <button class="matmenu" mat-menu-item (click)="today(note)">Later today
+      <span style="margin-left: 100px;">08:00 PM</span>
+    </button>
+
+    <button class="matmenu" mat-menu-item (click)="tommorrow(note)">Tomorrow
+      <span style="margin-left: 110px;">08:00 AM</span>
+    </button>
+
+    <button class="matmenu" mat-menu-item (click)="nextWeek(note)">Next week
+      <span style="margin-left: 75px;">Mon, 08:00 AM</span>
+    </button>
+
+  </mat-menu>
+</div>
