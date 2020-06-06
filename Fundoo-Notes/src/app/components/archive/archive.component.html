@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngFor="let item of data">
+        <div *ngIf="item.archived===true" class="mat-display">
+            <mat-card [ngStyle]="{'background-color':item.color}" style="word-wrap: normal; width:70%;">
+                <div class="mat-title">
+                    <mat-card-title style="font-family: fxFlexAlign;">
+                        {{item.title}}
+                    </mat-card-title>
+                </div>
+                <div class="mat-desc">
+                    <mat-card-content>
+                        {{item.description}}
+                    </mat-card-content>
+                </div>
+                <div>
+                    <app-icons [note]="item"></app-icons>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
