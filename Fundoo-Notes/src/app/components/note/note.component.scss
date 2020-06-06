@@ -1,46 +1,32 @@
 .container{
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    font-family: 'Google Sans',Roboto,Arial,sans-serif;
-    margin: 0.75rem;
-    align-items: flex-end;
-    width: auto;
+    margin: 2.90rem;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row;
 }
 
 .mat-display{
-    display: flex;
+    display: inline-block;
     width: 20rem;
-    height: auto;   
+    text-align: center;
+
 }
 
 mat-card{
-    border-radius: 15px;
-    border: 1px solid transparent;
-    margin-bottom: 0.75rem;
-    margin-right: 0;
-    background-color: transparent;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.note-icon{
-    display: flex;
-    justify-content: space-around;
-    
+.mat-title{
+    display: inline-block;
+    font-size: larger;
+    text-align: center;
 }
-.pin {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 17em;
-    visibility: visible;
-  }
-  .pin-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
 
-  .colorsList{
-    width: 50px;
-  }
-  
+.mat-desc{
+    display: inline-block;
+    text-align: center;
+    font-weight: 500;
+}

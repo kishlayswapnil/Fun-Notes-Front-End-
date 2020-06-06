@@ -1,17 +1,25 @@
 <div class="container">
-  <div class="mat-display">
-    <mat-card style="background-color: rgb(243, 235, 167);">
+  <div *ngFor="let item of data" class="mat-display">
+    <mat-card [ngStyle]="{'background-color':item.color}" style="word-wrap: normal; width:85%;">
       <div class="mat-title">
         <mat-card-title>
-          {{ note.title }}
+          {{item.title}}
         </mat-card-title>
       </div>
       <div class="mat-desc">
         <mat-card-content>
-          <textarea style="border: none;font-size:16px;font-style: normal;color: #000;" class="textArea">
-            {{ note.description }}
-          </textarea>
+          {{item.description}}
         </mat-card-content>
+      </div>
+      <div *ngIf="item.reminder != null">
+        <mat-card-content>
+          <mat-chip>{{item.reminder| date:'short'}}
+            <mat-icon matChipRemove (click)="removeReminder(item.id)" matTooltip="remove">cancel</mat-icon>
+          </mat-chip>
+        </mat-card-content>
+      </div>
+      <div>
+        <app-icons [note]="item"></app-icons>
       </div>
     </mat-card>
   </div>
