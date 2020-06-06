@@ -25,10 +25,10 @@
                     <button mat-icon-button class="refresh">
                         <mat-icon matTooltip="Refresh">refresh</mat-icon>
                     </button>
-                    <button mat-icon-button matTooltip="Grid View">
+                    <button mat-icon-button *ngIf="view" matTooltip="Grid View" (click)="getView()">
                         <mat-icon>view_module</mat-icon>
                     </button>
-                    <button mat-icon-button matTooltip="List View">
+                    <button mat-icon-button *ngIf="!view" matTooltip="List View" (click)="getView()">
                         <mat-icon>view_agenda</mat-icon>
                     </button>
                     <button mat-icon-button class="setting">
@@ -52,7 +52,7 @@
                     </button>
 
 
-                    <button mat-button class="navbutton">
+                    <button mat-button class="navbutton" (click)="onReminder()">
                         <mat-icon class="sidenav-icon">notifications_none</mat-icon>
                         <span class="icon-label">Reminders</span>
                     </button>
@@ -80,13 +80,13 @@
                 <mat-divider class="divider"></mat-divider>
 
                 <div>
-                    <button mat-button class="navbutton">
+                    <button mat-button class="navbutton" (click)="onArchive()">
                         <mat-icon class="sidenav-icon">archive</mat-icon>
                         <span class="icon-label">Archive</span>
                     </button>
                 </div>
                 <div>
-                    <button mat-button class="navbutton">
+                    <button mat-button class="navbutton" (click)="onTrash()">
                         <mat-icon class="sidenav-icon">delete</mat-icon>
                         <span class="icon-label">Trash</span>
                     </button>
