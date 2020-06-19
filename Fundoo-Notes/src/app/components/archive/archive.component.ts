@@ -22,7 +22,6 @@ export class ArchiveComponent implements OnInit {
         this.data = response['body']
         console.log("archive note", this.data)
       }
-
     )
   }
 }
