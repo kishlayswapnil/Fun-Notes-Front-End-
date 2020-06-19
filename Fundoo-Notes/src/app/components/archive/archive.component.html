@@ -1,9 +1,9 @@
 <div class="container">
     <div *ngFor="let item of data">
-        <div *ngIf="item.archived===true" class="mat-display">
-            <mat-card [ngStyle]="{'background-color':item.color}" style="word-wrap: normal; width:70%;">
+        <div *ngIf="item.archived==true" class="mat-display">
+            <mat-card [ngStyle]="{'background-color':item.color}" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                 <div class="mat-title">
-                    <mat-card-title style="font-family: fxFlexAlign;">
+                    <mat-card-title>
                         {{item.title}}
                     </mat-card-title>
                 </div>
