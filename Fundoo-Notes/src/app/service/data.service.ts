@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject, Observable } from 'rxjs';
 import { NoteService } from './note.service';
 
 @Injectable({
@@ -8,6 +8,8 @@ import { NoteService } from './note.service';
 export class DataService {
   private broadcastNotes = new BehaviorSubject([]);
   broadcast = this.broadcastNotes.asObservable();
+  private view = new Subject<any>();
+
   constructor(private noteService: NoteService) { }
 
   createBroadcast() {
@@ -28,5 +30,13 @@ export class DataService {
         console.log(error);
       }
     );
+  }
+
+  setView(data: any) {
+    this.view.next({ view: data });
+  }
+
+  getView(): Observable<any> {
+    return this.view.asObservable();
   }
 }
