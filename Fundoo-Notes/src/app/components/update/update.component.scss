@@ -1,0 +1,60 @@
+.createnotes{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
+
+}
+
+.input
+{
+    display: flex;
+    justify-content:center;
+    height: 100%;
+    width: 100%;
+    font-size:20px;
+    border:none;
+    outline:none;
+    float: left;
+}
+
+.note-matcard{
+    display: flex;
+    border-radius: 1em;
+    height: 13em;
+     border-style: outset;
+    
+} 
+.icon-div{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 40%;
+    border-radius: 1em;
+    height: 4%;
+}
+
+textarea{
+ 
+    border: none;
+    height: 1em;
+    margin: 0.5rem;
+    padding: 16px;
+    font-weight: bolder;
+    outline: none;
+    resize: none;
+    overflow:hidden;
+    width: auto;
+}
+
+.close:hover{
+    color : lightslategray;
+}
+
+.icons{
+    padding-top: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

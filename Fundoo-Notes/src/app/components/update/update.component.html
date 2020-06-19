@@ -1,0 +1,10 @@
+<div>
+    <mat-card class="note-matcard" fxLayout="column">
+        <textarea matInput type="text" [formControl]="title"></textarea>
+        <textarea matInput type="text" [formControl]="description"></textarea>
+        <div class="icons">
+            <app-icons></app-icons>
+            <button mat-button mat-dialog-close (click)="onSubmit(data)" class="close">Close</button>
+        </div>
+    </mat-card>
+</div>
