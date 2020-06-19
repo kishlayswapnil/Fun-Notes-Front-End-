@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container" fxLayout={{view}} fxLayoutGap="10px">
   <div *ngFor="let item of data" class="mat-display">
-    <mat-card [ngStyle]="{'background-color':item.color}" style="word-wrap: normal; width:85%;">
-      <div class="mat-title">
+    <mat-card [ngStyle]="{'background-color':item.color}" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width:85%;">
+      <div class="mat-title" (click)="openDialog(item)">
         <mat-card-title>
           {{item.title}}
         </mat-card-title>
@@ -13,10 +14,21 @@
       </div>
       <div *ngIf="item.reminder != null">
         <mat-card-content>
-          <mat-chip>{{item.reminder| date:'short'}}
+          <mat-basic-chip color="item.color">
+            <mat-icon>access_time</mat-icon>{{item.reminder| date:'short'}}
             <mat-icon matChipRemove (click)="removeReminder(item.id)" matTooltip="remove">cancel</mat-icon>
-          </mat-chip>
+          </mat-basic-chip>
         </mat-card-content>
+      </div>
+      <div *ngFor="let label of labels">
+        <mat-chip-list>
+          <div class="matchip" style="width: 100%;">
+            <mat-basic-chip color="item.color">
+              {{label.name}}
+              <mat-icon matChipRemove (click)="remove(label)" matTooltip="remove">cancel</mat-icon>
+            </mat-basic-chip>
+          </div>
+        </mat-chip-list>
       </div>
       <div>
         <app-icons [note]="item"></app-icons>
