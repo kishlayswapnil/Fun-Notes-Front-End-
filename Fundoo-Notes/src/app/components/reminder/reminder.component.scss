@@ -30,3 +30,11 @@ mat-card{
   text-align: center;
   font-weight: 500;
 }
+
+mat-basic-chip{
+  display: inline-flex;
+  border: groove;
+  border-radius: 13px;
+  border-width: 2px;
+  justify-content: space-between;
+}
