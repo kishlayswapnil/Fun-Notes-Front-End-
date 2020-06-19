@@ -1,7 +1,8 @@
 <div class="container">
     <div *ngFor="let item of data">
         <div *ngIf="item.trashed===true" class="mat-display">
-            <mat-card [ngStyle]="{'background-color':item.color}" style="word-wrap: normal; width:70%;">
+            <mat-card [ngStyle]="{'background-color':item.color}"
+                style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); word-wrap: normal;">
                 <div class="mat-title">
                     <mat-card-title style="font-family: fxFlexAlign;">
                         {{item.title}}
@@ -17,7 +18,7 @@
                         <mat-icon matTooltip="Delete Forever">delete_forever</mat-icon>
                     </button>
                     <button mat-icon-button (click)="onRestore(item.id)">
-                        <mat-icon matTooltip="Restore">restore_froms_trash</mat-icon>
+                        <mat-icon matTooltip="Restore">restore_from_trash</mat-icon>
                     </button>
                 </div>
             </mat-card>
