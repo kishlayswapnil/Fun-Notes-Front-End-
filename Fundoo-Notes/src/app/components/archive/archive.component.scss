@@ -8,7 +8,7 @@
 }
 
 .mat-display{
-  display: inline-block;
+  display: inline-flex;
   width: 20rem;
   text-align: center;
 
@@ -22,11 +22,12 @@ mat-card{
 .mat-title{
   display: inline-block;
   font-size: larger;
-  text-align: center;
+  word-wrap: break-word;
 }
 
 .mat-desc{
   display: inline-block;
   text-align: center;
   font-weight: 500;
+  word-wrap: break-word;
 }
