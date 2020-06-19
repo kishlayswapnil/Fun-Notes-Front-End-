@@ -12,7 +12,6 @@ import { DataService } from 'src/app/service/data.service';
 export class TrashComponent implements OnInit {
   @Input() note: any;
   data: any[];
-  datas: any
 
   constructor(private matSnackBar: MatSnackBar,
     private noteService: NoteService, private dataService: DataService) {
@@ -33,16 +32,13 @@ export class TrashComponent implements OnInit {
     this.noteService.deleteNotePermanently(id).subscribe(
       (response: any) => {
         console.log("response : ", response.id);
-        this.matSnackBar.open("Restored", "Ok", { duration: 4000 })
+        this.matSnackBar.open("Deleted", "Ok", { duration: 4000 })
       }
     );
   }
 
   onRestore(id: any) {
     console.log("note data:", id);
-    this.datas = {
-      trashed: false
-    }
     this.noteService.trashNote(id, null).subscribe(
       (response: any) => {
         console.log("response : ", response.id);
