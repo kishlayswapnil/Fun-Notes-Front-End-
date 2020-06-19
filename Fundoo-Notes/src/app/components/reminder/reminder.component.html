@@ -1,7 +1,8 @@
 <div class="container">
     <div *ngFor="let item of data">
         <div *ngIf="item.reminder != null" class="mat-display">
-            <mat-card [ngStyle]="{'background-color':item.color}" style="word-wrap: normal; width:70%;">
+            <mat-card [ngStyle]="{'background-color':item.color}"
+                style="word-wrap: normal; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
                 <div class="mat-title">
                     <mat-card-title style="font-family: fxFlexAlign;">
                         {{item.title}}
@@ -12,10 +13,11 @@
                         {{item.description}}
                     </mat-card-content>
                 </div>
-                <mat-card-content class="content" id="remainder-box">
-                    <mat-chip class="textArea">{{ displayReminder }}
+                <mat-card-content>
+                    <mat-basic-chip color="item.color">
+                        <mat-icon>access_time</mat-icon>{{item.reminder| date:'short'}}
                         <mat-icon matChipRemove (click)="removeReminder(item.id)" matTooltip="remove">cancel</mat-icon>
-                    </mat-chip>
+                    </mat-basic-chip>
                 </mat-card-content>
                 <div>
                     <app-icons [note]="item"></app-icons>
