@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/service/note.service';
 import { DataService } from 'src/app/service/data.service';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { LabelComponent } from '../label/label.component';
 
 @Component({
   selector: 'app-icons',
@@ -11,14 +13,13 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./icons.component.scss']
 })
 export class IconsComponent implements OnInit {
-  @Input() note: Note;
+  @Input() note: any;
   reminderDate: string;
   datePipeString: string;
   tommorrowDate: string;
   setReminderDate: string;
-  data: any;
 
-  constructor(private noteService: NoteService,
+  constructor(private noteService: NoteService, private matDialog: MatDialog,
     private matSnackBar: MatSnackBar, private dataService: DataService, private datePipe: DatePipe) {
     this.datePipeString = datePipe.transform(Date.now(), 'yyyy-MM-dd');
   }
@@ -68,10 +69,6 @@ export class IconsComponent implements OnInit {
   deleteNote() {
     console.log("note:", this.note);
     console.log("note data:", this.note.id);
-    this.data = {
-      id: this.note.id,
-      trashed: true
-    }
     this.noteService.trashNote(this.note.id, null).subscribe(
       (response: any) => {
         console.log("response : ", response.id);
@@ -94,10 +91,6 @@ export class IconsComponent implements OnInit {
   onArchive() {
     console.log("note:", this.note);
     console.log("note data:", this.note.id);
-    this.data = {
-      id: this.note.id,
-      archived: true
-    }
     this.noteService.archiveNote(this.note.id, null).subscribe(
       (response: any) => {
         console.log("response : ", response.id);
@@ -110,15 +103,11 @@ export class IconsComponent implements OnInit {
   onUnArchive() {
     console.log("note:", this.note);
     console.log("note data:", this.note.id);
-    this.data = {
-      id: this.note.id,
-      archived: false
-    }
     this.noteService.archiveNote(this.note.id, null).subscribe(
       (response: any) => {
         console.log("response : ", response.id);
         this.dataService.createBroadcast();
-        this.matSnackBar.open("Archived", "Ok", { duration: 4000 })
+        this.matSnackBar.open("UnArchived", "Ok", { duration: 4000 })
       }
     );
   }
@@ -184,6 +173,16 @@ export class IconsComponent implements OnInit {
         this.matSnackBar.open("Reminder Added Successfully", "ok", { duration: 4000 });
       }
     );
+  }
+
+  addLabel(note): void {
+    const dialogRef = this.matDialog.open(LabelComponent, {
+      width: '250px', height: 'auto',
+      data: { note }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('matdialog closed');
+    });
   }
 }
 
