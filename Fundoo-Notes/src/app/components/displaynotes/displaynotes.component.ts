@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Note } from '../../model/Note.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from '../../service/note.service';
+import { Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-displaynotes',
@@ -10,24 +11,13 @@ import { NoteService } from '../../service/note.service';
   styleUrls: ['./displaynotes.component.scss']
 })
 export class DisplaynotesComponent implements OnInit {
-  notes = new Array<Note>();
-  view: any;
-  private param: any;
 
-  constructor(private router: ActivatedRoute,
-    private matSnackBar: MatSnackBar,
+
+  constructor(
     private noteService: NoteService) { }
 
 
   ngOnInit(): void {
   }
 
-  getView() {
-    this.noteService.getView().subscribe(
-      (response: any) => {
-        this.view = response.view;
-      }
-    );
-
-  }
 }
